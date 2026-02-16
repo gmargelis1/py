@@ -1,5 +1,5 @@
 import streamlit as st
-import mysql
+import mysql.connector
 
 conn = mysql.connector.connect(
 	host="localhost",
@@ -7,7 +7,8 @@ conn = mysql.connector.connect(
 	user="GM",
 	password="Smilly12345!",
 	database="rca_prediction",
-	auth_plugin='mysql_native_password'
+	auth_plugin='mysql_native_password',
+	use_pure=True
 )
 
 cursor = conn.cursor()
@@ -103,4 +104,5 @@ if prompt := st.chat_input("Describe your issue in natural language..."):
             
     # Save assistant message
     st.session_state.messages.append({"role": "assistant", "content": final_text})
+
 
