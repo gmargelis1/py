@@ -1,4 +1,5 @@
 import streamlit as st
+import sqlalchemy
 import mysql.connector
 
 conn = mysql.connector.connect(
@@ -104,5 +105,6 @@ if prompt := st.chat_input("Describe your issue in natural language..."):
             
     # Save assistant message
     st.session_state.messages.append({"role": "assistant", "content": final_text})
+
 
 
